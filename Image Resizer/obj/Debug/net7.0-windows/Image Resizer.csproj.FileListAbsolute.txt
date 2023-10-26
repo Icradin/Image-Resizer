@@ -1,0 +1,24 @@
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\bin\Debug\net7.0-windows\Image Resizer.exe
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\bin\Debug\net7.0-windows\Image Resizer.deps.json
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\bin\Debug\net7.0-windows\Image Resizer.runtimeconfig.json
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\bin\Debug\net7.0-windows\Image Resizer.dll
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\bin\Debug\net7.0-windows\Image Resizer.pdb
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.csproj.AssemblyReference.cache
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.csproj.GenerateResource.cache
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.AssemblyInfoInputs.cache
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.AssemblyInfo.cs
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.csproj.CoreCompileInputs.cache
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.dll
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\refint\Image Resizer.dll
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.pdb
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.genruntimeconfig.cache
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\ref\Image Resizer.dll
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\bin\Debug\net7.0-windows\SixLabors.ImageSharp.dll
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image Resizer.csproj.CopyComplete
+C:\Users\AlexTerziev\Documents\VSBuilds\Debug\net7.0-windows\Image Resizer.exe
+C:\Users\AlexTerziev\Documents\VSBuilds\Debug\net7.0-windows\Image Resizer.deps.json
+C:\Users\AlexTerziev\Documents\VSBuilds\Debug\net7.0-windows\Image Resizer.runtimeconfig.json
+C:\Users\AlexTerziev\Documents\VSBuilds\Debug\net7.0-windows\Image Resizer.dll
+C:\Users\AlexTerziev\Documents\VSBuilds\Debug\net7.0-windows\Image Resizer.pdb
+C:\Users\AlexTerziev\Documents\WinDevelopment\ImageResizer\Image Resizer\Image Resizer\obj\Debug\net7.0-windows\Image_Resizer.UIController.resources

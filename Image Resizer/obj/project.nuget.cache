@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oGK8omLCXTB8Y9uaZVZEax98ytazClLXXVN+L5jVGSZDiqA2PGZwxPuffr7wCmj9uU8InCP37g9Acwt/QwUDKw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AlexTerziev\\Documents\\WinDevelopment\\ImageResizer\\Image Resizer\\Image Resizer\\Image Resizer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AlexTerziev\\.nuget\\packages\\sixlabors.imagesharp\\3.0.1\\sixlabors.imagesharp.3.0.1.nupkg.sha512",
+    "C:\\Users\\AlexTerziev\\.nuget\\packages\\yamldotnet\\13.7.1\\yamldotnet.13.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
