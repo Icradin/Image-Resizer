@@ -28,7 +28,7 @@ namespace Image_Resizer
         {
             _settings = settings;
             _imageLoader = loader;
-            _newFilePath = _imageLoader._processedImagePath;
+            
         }
 
         public IResampler GetImageSharpSampler(SamplerType samplerType)
@@ -136,7 +136,7 @@ namespace Image_Resizer
                         break;
 
                     default:
-                        img.Save(_newFilePath); 
+                        img.Save(_newFilePath); // Default save method if no specific encoder is set
                         break;
                 }
 
@@ -149,8 +149,6 @@ namespace Image_Resizer
                 smallFileString.Append(smallFile + "\n");
             }   
             
-
-
         }
     }
 }
