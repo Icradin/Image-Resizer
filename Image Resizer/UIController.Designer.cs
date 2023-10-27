@@ -67,35 +67,36 @@ namespace Image_Resizer
             button17 = new Button();
             button19 = new Button();
             button21 = new Button();
+            button22 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new System.Drawing.Point(20, 70);
+            pictureBox1.Location = new System.Drawing.Point(18, 66);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(512, 512);
+            pictureBox1.Size = new System.Drawing.Size(473, 480);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            pictureBox2.Location = new System.Drawing.Point(700, 70);
+            pictureBox2.Location = new System.Drawing.Point(646, 66);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(512, 512);
+            pictureBox2.Size = new System.Drawing.Size(473, 480);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(20, 1670);
+            button1.Location = new System.Drawing.Point(18, 1566);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(270, 46);
+            button1.Size = new System.Drawing.Size(249, 43);
             button1.TabIndex = 3;
             button1.Text = "Load Images";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += OpenImages;
+            button1.Click += CallLoadImages;
             // 
             // checkedListBox1
             // 
@@ -103,37 +104,36 @@ namespace Image_Resizer
             checkedListBox1.CheckOnClick = true;
             checkedListBox1.FormattingEnabled = true;
             checkedListBox1.HorizontalScrollbar = true;
-            checkedListBox1.Location = new System.Drawing.Point(20, 609);
+            checkedListBox1.Location = new System.Drawing.Point(18, 571);
             checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new System.Drawing.Size(510, 1048);
+            checkedListBox1.Size = new System.Drawing.Size(471, 964);
             checkedListBox1.TabIndex = 4;
-            //checkedListBox1.ItemCheck += ChangeOrriginalImagePreview;
             // 
             // button2
             // 
-            button2.Location = new System.Drawing.Point(540, 70);
+            button2.Location = new System.Drawing.Point(498, 66);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(150, 46);
+            button2.Size = new System.Drawing.Size(138, 43);
             button2.TabIndex = 7;
             button2.Text = "2048";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += SetResolution2048;
             // 
             // button3
             // 
-            button3.Location = new System.Drawing.Point(540, 131);
+            button3.Location = new System.Drawing.Point(498, 123);
             button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(150, 46);
+            button3.Size = new System.Drawing.Size(138, 43);
             button3.TabIndex = 8;
             button3.Text = "1024";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            button3.Click += SetResolution1024;
             // 
             // button4
             // 
-            button4.Location = new System.Drawing.Point(1230, 1670);
+            button4.Location = new System.Drawing.Point(1135, 1566);
             button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(270, 46);
+            button4.Size = new System.Drawing.Size(249, 43);
             button4.TabIndex = 9;
             button4.Text = "Open Temp Folder";
             button4.UseVisualStyleBackColor = true;
@@ -145,17 +145,16 @@ namespace Image_Resizer
             checkedListBox2.CheckOnClick = true;
             checkedListBox2.FormattingEnabled = true;
             checkedListBox2.HorizontalScrollbar = true;
-            checkedListBox2.Location = new System.Drawing.Point(700, 610);
+            checkedListBox2.Location = new System.Drawing.Point(646, 572);
             checkedListBox2.Name = "checkedListBox2";
-            checkedListBox2.Size = new System.Drawing.Size(512, 1048);
+            checkedListBox2.Size = new System.Drawing.Size(473, 964);
             checkedListBox2.TabIndex = 10;
-            //checkedListBox2.ItemCheck += ChangeProcessedImagePreview;
             // 
             // button5
             // 
-            button5.Location = new System.Drawing.Point(540, 191);
+            button5.Location = new System.Drawing.Point(498, 179);
             button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(150, 46);
+            button5.Size = new System.Drawing.Size(138, 43);
             button5.TabIndex = 12;
             button5.Text = "512";
             button5.UseVisualStyleBackColor = true;
@@ -163,9 +162,9 @@ namespace Image_Resizer
             // 
             // button6
             // 
-            button6.Location = new System.Drawing.Point(540, 251);
+            button6.Location = new System.Drawing.Point(498, 235);
             button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(150, 46);
+            button6.Size = new System.Drawing.Size(138, 43);
             button6.TabIndex = 13;
             button6.Text = "265";
             button6.UseVisualStyleBackColor = true;
@@ -173,9 +172,9 @@ namespace Image_Resizer
             // 
             // button7
             // 
-            button7.Location = new System.Drawing.Point(540, 311);
+            button7.Location = new System.Drawing.Point(498, 292);
             button7.Name = "button7";
-            button7.Size = new System.Drawing.Size(150, 46);
+            button7.Size = new System.Drawing.Size(138, 43);
             button7.TabIndex = 14;
             button7.Text = "128";
             button7.UseVisualStyleBackColor = true;
@@ -183,9 +182,9 @@ namespace Image_Resizer
             // 
             // button8
             // 
-            button8.Location = new System.Drawing.Point(540, 371);
+            button8.Location = new System.Drawing.Point(498, 348);
             button8.Name = "button8";
-            button8.Size = new System.Drawing.Size(150, 46);
+            button8.Size = new System.Drawing.Size(138, 43);
             button8.TabIndex = 15;
             button8.Text = "64";
             button8.UseVisualStyleBackColor = true;
@@ -193,9 +192,9 @@ namespace Image_Resizer
             // 
             // button9
             // 
-            button9.Location = new System.Drawing.Point(540, 431);
+            button9.Location = new System.Drawing.Point(498, 404);
             button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(150, 46);
+            button9.Size = new System.Drawing.Size(138, 43);
             button9.TabIndex = 16;
             button9.Text = "32";
             button9.UseVisualStyleBackColor = true;
@@ -203,9 +202,9 @@ namespace Image_Resizer
             // 
             // button10
             // 
-            button10.Location = new System.Drawing.Point(540, 492);
+            button10.Location = new System.Drawing.Point(498, 461);
             button10.Name = "button10";
-            button10.Size = new System.Drawing.Size(150, 46);
+            button10.Size = new System.Drawing.Size(138, 43);
             button10.TabIndex = 17;
             button10.Text = "16";
             button10.UseVisualStyleBackColor = true;
@@ -213,9 +212,9 @@ namespace Image_Resizer
             // 
             // button12
             // 
-            button12.Location = new System.Drawing.Point(20, 1790);
+            button12.Location = new System.Drawing.Point(18, 1678);
             button12.Name = "button12";
-            button12.Size = new System.Drawing.Size(270, 46);
+            button12.Size = new System.Drawing.Size(249, 43);
             button12.TabIndex = 26;
             button12.Text = "Select Large Images";
             button12.UseVisualStyleBackColor = true;
@@ -223,9 +222,9 @@ namespace Image_Resizer
             // 
             // button13
             // 
-            button13.Location = new System.Drawing.Point(950, 1670);
+            button13.Location = new System.Drawing.Point(877, 1566);
             button13.Name = "button13";
-            button13.Size = new System.Drawing.Size(260, 46);
+            button13.Size = new System.Drawing.Size(240, 43);
             button13.TabIndex = 25;
             button13.Text = "Overwrite Selected";
             button13.UseVisualStyleBackColor = true;
@@ -233,9 +232,9 @@ namespace Image_Resizer
             // 
             // button14
             // 
-            button14.Location = new System.Drawing.Point(700, 1670);
+            button14.Location = new System.Drawing.Point(646, 1566);
             button14.Name = "button14";
-            button14.Size = new System.Drawing.Size(240, 46);
+            button14.Size = new System.Drawing.Size(222, 43);
             button14.TabIndex = 24;
             button14.Text = "Overwrite All";
             button14.UseVisualStyleBackColor = true;
@@ -243,9 +242,9 @@ namespace Image_Resizer
             // 
             // button15
             // 
-            button15.Location = new System.Drawing.Point(20, 1730);
+            button15.Location = new System.Drawing.Point(18, 1622);
             button15.Name = "button15";
-            button15.Size = new System.Drawing.Size(270, 46);
+            button15.Size = new System.Drawing.Size(249, 43);
             button15.TabIndex = 23;
             button15.Text = "Select All";
             button15.UseVisualStyleBackColor = true;
@@ -254,17 +253,17 @@ namespace Image_Resizer
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(1230, 20);
+            label3.Location = new System.Drawing.Point(1135, 19);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(161, 32);
+            label3.Size = new System.Drawing.Size(140, 30);
             label3.TabIndex = 27;
             label3.Text = "Main Settings";
             // 
             // button20
             // 
-            button20.Location = new System.Drawing.Point(1230, 1730);
+            button20.Location = new System.Drawing.Point(1135, 1622);
             button20.Name = "button20";
-            button20.Size = new System.Drawing.Size(270, 46);
+            button20.Size = new System.Drawing.Size(249, 43);
             button20.TabIndex = 28;
             button20.Text = "Clear Temp Folder";
             button20.UseVisualStyleBackColor = true;
@@ -285,18 +284,18 @@ namespace Image_Resizer
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(20, 20);
+            label1.Location = new System.Drawing.Point(18, 19);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(275, 32);
+            label1.Size = new System.Drawing.Size(238, 30);
             label1.TabIndex = 32;
             label1.Text = "Imported image preview";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(700, 30);
+            label2.Location = new System.Drawing.Point(646, 28);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(243, 32);
+            label2.Size = new System.Drawing.Size(212, 30);
             label2.TabIndex = 33;
             label2.Text = "Edited Image Preview";
             // 
@@ -313,18 +312,18 @@ namespace Image_Resizer
             // 
             // propertyGrid1
             // 
-            propertyGrid1.Location = new System.Drawing.Point(1228, 66);
+            propertyGrid1.Location = new System.Drawing.Point(1134, 62);
             propertyGrid1.Name = "propertyGrid1";
-            propertyGrid1.Size = new System.Drawing.Size(512, 514);
+            propertyGrid1.Size = new System.Drawing.Size(473, 482);
             propertyGrid1.TabIndex = 0;
             propertyGrid1.PropertyValueChanged += GridValueLimiter;
             propertyGrid1.Click += propertyGrid1_Click;
             // 
             // button11
             // 
-            button11.Location = new System.Drawing.Point(700, 1730);
+            button11.Location = new System.Drawing.Point(646, 1622);
             button11.Name = "button11";
-            button11.Size = new System.Drawing.Size(240, 46);
+            button11.Size = new System.Drawing.Size(222, 43);
             button11.TabIndex = 37;
             button11.Text = "Restore All";
             button11.UseVisualStyleBackColor = true;
@@ -332,9 +331,9 @@ namespace Image_Resizer
             // 
             // button18
             // 
-            button18.Location = new System.Drawing.Point(950, 1730);
+            button18.Location = new System.Drawing.Point(877, 1622);
             button18.Name = "button18";
-            button18.Size = new System.Drawing.Size(260, 46);
+            button18.Size = new System.Drawing.Size(240, 43);
             button18.TabIndex = 39;
             button18.Text = "Restore Last Selection";
             button18.UseVisualStyleBackColor = true;
@@ -342,45 +341,44 @@ namespace Image_Resizer
             // 
             // textBox1
             // 
-            textBox1.Location = new System.Drawing.Point(1230, 610);
-            textBox1.MaximumSize = new System.Drawing.Size(512, 2000);
+            textBox1.Location = new System.Drawing.Point(1135, 572);
+            textBox1.MaximumSize = new System.Drawing.Size(473, 1875);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.ScrollBars = ScrollBars.Both;
-            textBox1.Size = new System.Drawing.Size(512, 1048);
+            textBox1.Size = new System.Drawing.Size(473, 983);
             textBox1.TabIndex = 40;
             // 
             // progressBar1
             // 
-            progressBar1.Location = new System.Drawing.Point(20, 1850);
+            progressBar1.Location = new System.Drawing.Point(18, 1734);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new System.Drawing.Size(1720, 46);
+            progressBar1.Size = new System.Drawing.Size(1588, 43);
             progressBar1.TabIndex = 42;
             // 
             // button16
             // 
-            button16.Location = new System.Drawing.Point(540, 550);
+            button16.Location = new System.Drawing.Point(498, 516);
             button16.Name = "button16";
-            button16.Size = new System.Drawing.Size(150, 46);
+            button16.Size = new System.Drawing.Size(138, 43);
             button16.TabIndex = 44;
             button16.Text = "META";
             button16.UseVisualStyleBackColor = true;
             // 
             // button17
             // 
-            button17.Location = new System.Drawing.Point(540, 610);
+            button17.Location = new System.Drawing.Point(498, 572);
             button17.Name = "button17";
-            button17.Size = new System.Drawing.Size(150, 46);
+            button17.Size = new System.Drawing.Size(138, 43);
             button17.TabIndex = 45;
             button17.Text = "Meta Test";
             button17.UseVisualStyleBackColor = true;
-            
             // 
             // button19
             // 
-            button19.Location = new System.Drawing.Point(300, 1670);
+            button19.Location = new System.Drawing.Point(277, 1566);
             button19.Name = "button19";
-            button19.Size = new System.Drawing.Size(270, 46);
+            button19.Size = new System.Drawing.Size(249, 43);
             button19.TabIndex = 46;
             button19.Text = "Select All TGA";
             button19.UseVisualStyleBackColor = true;
@@ -388,19 +386,30 @@ namespace Image_Resizer
             // 
             // button21
             // 
-            button21.Location = new System.Drawing.Point(540, 730);
+            button21.Location = new System.Drawing.Point(498, 684);
             button21.Name = "button21";
-            button21.Size = new System.Drawing.Size(150, 46);
+            button21.Size = new System.Drawing.Size(138, 43);
             button21.TabIndex = 47;
             button21.Text = "Meta Test";
             button21.UseVisualStyleBackColor = true;
             button21.Click += CallLoadImages;
             // 
-            // ImageResizer
+            // button22
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            button22.Location = new System.Drawing.Point(500, 800);
+            button22.Name = "button22";
+            button22.Size = new System.Drawing.Size(138, 43);
+            button22.TabIndex = 48;
+            button22.Text = "Test";
+            button22.UseVisualStyleBackColor = true;
+            button22.Click += CheckImageNamesLength;
+            // 
+            // UIController
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1754, 1910);
+            ClientSize = new System.Drawing.Size(1619, 1791);
+            Controls.Add(button22);
             Controls.Add(button21);
             Controls.Add(button19);
             Controls.Add(button17);
@@ -432,7 +441,7 @@ namespace Image_Resizer
             Controls.Add(button1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Name = "ImageResizer";
+            Name = "UIController";
             Text = "Mass Texture Size Reducer";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -485,5 +494,6 @@ namespace Image_Resizer
         public Button button19;
         private System.ComponentModel.IContainer components;
         public Button button21;
+        public Button button22;
     }
 }

@@ -18,6 +18,13 @@ namespace Image_Resizer
         private double _loadedImageSize = 0;
         private double _processedImageSize = 0;
 
+
+        public SizeCalculator(ImageLoader imageLoader)
+        {
+            _imageLoader = imageLoader;
+        }
+
+
         public void CalculateLoadedSize()
         {
             foreach (string image in _imageLoader._loadedImagePaths.Values)
@@ -40,11 +47,7 @@ namespace Image_Resizer
             }
         }
 
-        public SizeCalculator()
-        {
-            _imageLoader = new ImageLoader();
-        }
-
+        
 
 
 

@@ -34,11 +34,7 @@ namespace Image_Resizer
 
         public List<string> _checkedListBox1Filler = new List<string>();
         public List<string> _imageNames = new List<string>();
-        
-        private int _progressBarValue = 0;
-        public int _progressBarMaxValue = 0;
-
-        public event EventHandler ProgressBarValueChanged;
+            
 
         public ImageLoader(UIController controller, Settings settings)
         {
@@ -46,13 +42,16 @@ namespace Image_Resizer
             _settings = settings;   
 
             _appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ImageResizer");
-
             _loadedImagePath = Path.Combine(_appDataPath, "LoadedImages");
             _processedImagePath = Path.Combine(_appDataPath, "ProcessedImages");
 
             if (!Directory.Exists(_appDataPath)) Directory.CreateDirectory(_appDataPath);
             if (!Directory.Exists(_loadedImagePath)) Directory.CreateDirectory(_loadedImagePath);
             if (!Directory.Exists(_processedImagePath)) Directory.CreateDirectory(_processedImagePath);
+
+            Debug.WriteLine("Loaded Image Path: " + _loadedImagePath); 
+            Debug.WriteLine("Processed Image Path: " + _processedImagePath);
+            Debug.WriteLine("AppData Path: " + _appDataPath);
 
         }
 
@@ -64,17 +63,19 @@ namespace Image_Resizer
                 string[] files = Directory.GetFiles(_folderBrowserDialog.SelectedPath, "*.png", SearchOption.AllDirectories)
                     .Concat(Directory.GetFiles(_folderBrowserDialog.SelectedPath, "*.jpg", SearchOption.AllDirectories))
                     .Concat(Directory.GetFiles(_folderBrowserDialog.SelectedPath, "*.tga", SearchOption.AllDirectories))
-                    //.Concat(Directory.GetFiles(_folderBrowserDialog.SelectedPath, "*.tiff", SearchOption.AllDirectories))
-                    //.Concat(Directory.GetFiles(_folderBrowserDialog.SelectedPath, "*.webm", SearchOption.AllDirectories))
+                    .Concat(Directory.GetFiles(_folderBrowserDialog.SelectedPath, "*.tiff", SearchOption.AllDirectories))
+                    .Concat(Directory.GetFiles(_folderBrowserDialog.SelectedPath, "*.webm", SearchOption.AllDirectories))
                     .ToArray();
 
-                _progressBarMaxValue = files.Length;
+                _uiController.SetProgressBarMax(files.Length);
+
+                for(int i = 0; i < files.Length; i++) { Debug.WriteLine($"{files[i]}"); }
 
                 List<string> unsupportedFiles = new List<string>();
 
                 foreach (string file in files)
                 {
-                    Debug.WriteLine(Path.GetFileName(file));
+                   
                     _imageNames.Add(Path.GetFileName(file));
 
                     string destinationPath = Path.Combine(_loadedImagePath, Path.GetFileName(file));
@@ -100,6 +101,8 @@ namespace Image_Resizer
                         string itemName = $"({resolution} {fileSize} MB) {fileName} / {parentDirectory}";
                         _checkedListBox1Filler.Add(itemName);
 
+                        _uiController.UpdateProgressBar();
+
                     }
                     catch (Exception)
                     {
@@ -112,6 +115,7 @@ namespace Image_Resizer
                         MessageBox.Show(message);
                     }
 
+                    
                     
                 }
             }

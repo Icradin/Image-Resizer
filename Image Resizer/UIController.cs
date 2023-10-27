@@ -23,10 +23,7 @@ namespace Image_Resizer
         private Settings settings;
         private ImageLoader _imageLoader;
         private ImageProcessor _imageProcessor;
-
-        
-
-
+        private SizeCalculator _sizeCalculator;
 
         FolderBrowserDialog folderDialog = new FolderBrowserDialog();
 
@@ -43,6 +40,9 @@ namespace Image_Resizer
 
         private double orriginalImageSize = 0;
         private double newImageSize = 0;
+
+        private int _progressBarMin = 0;
+        private int _progressBarMax = 0;
 
         private List<string> checkedListBox1Items = new List<string>();
         public IResampler GetImageSharpSampler(SamplerType samplerType)
@@ -67,27 +67,29 @@ namespace Image_Resizer
             settings = new Settings();
             _imageLoader = new ImageLoader(this, settings);
             _imageProcessor = new ImageProcessor(_imageLoader, settings);
+            _sizeCalculator = new SizeCalculator(_imageLoader);
 
-            appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ImageResizer");
-            loadedImagesPath = Path.Combine(appDataPath, "LoadedImages");
-            processedImagesPath = Path.Combine(appDataPath, "ProcessedImages");
-            tempDirectoryPath = Path.Combine(appDataPath, "Temp");  // Step 2: Initialize this variable here
-
-            // Create directories if they don't exist
-            if (!Directory.Exists(appDataPath)) Directory.CreateDirectory(appDataPath);
-            if (!Directory.Exists(loadedImagesPath)) Directory.CreateDirectory(loadedImagesPath);
-            if (!Directory.Exists(processedImagesPath)) Directory.CreateDirectory(processedImagesPath);
-            if (!Directory.Exists(tempDirectoryPath)) Directory.CreateDirectory(tempDirectoryPath);  // Create the Temp directory if it doesn't exist
 
             this.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
 
             propertyGrid1.SelectedObject = settings;
         }
 
-        private void UpdateProgressBar(int value)
+        #region ProgressBarControls
+        public void SetProgressBarMax(int progressBarMax)
         {
-           progressBar1.Value = value;
+            progressBar1.Maximum = progressBarMax;
         }
+        public void UpdateProgressBar()
+        {
+            progressBar1.Value++;
+        }
+        public void ResetProgressBar()
+        {
+            progressBar1.Value = 0;
+            progressBar1.Maximum = 0;
+        }
+        #endregion
 
         private void CallLoadImages(object sender, EventArgs e)
         {
@@ -102,14 +104,12 @@ namespace Image_Resizer
 
         }
 
+        #region ImageProcessingControls
         private void CallProcessImages(int desiredResolution)
         {
             int selectedCount = checkedListBox1.CheckedIndices.Count;
             string imageName = "";
             string imagePath = "";
-            string newImagePath = "";
-            string fileExtension = "";
-
 
             DialogResult result = MessageBox.Show($"You are about to change the resolution of {selectedCount} images. Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -124,24 +124,57 @@ namespace Image_Resizer
                 {
                     imageName = _imageLoader._imageNames[index];
                     imagePath = _imageLoader._loadedImagePaths[imageName];
-                    
-                    
+
                     _imageProcessor.ProcessImages(desiredResolution, imagePath);
-
                 }
-
             }
         }
 
+        private void CheckImageNamesLength(object sender, EventArgs e)
+        {
+            Debug.WriteLine(_imageLoader._imageNames.Count.ToString());
+        }
 
-
+        private void SetResolution2048(object sender, EventArgs e)
+        {
+            CallProcessImages(2048);
+        }
+        private void SetResolution1024(object sender, EventArgs e)
+        {
+            CallProcessImages(1024);
+        }
+        private void SetResolution512(object sender, EventArgs e)
+        {
+            CallProcessImages(512);
+        }
+        private void SetResolution256(object sender, EventArgs e)
+        {
+            CallProcessImages(256);
+        }
+        private void SetResolution128(object sender, EventArgs e)
+        {
+            CallProcessImages(128);
+        }
+        private void SetResolution64(object sender, EventArgs e)
+        {
+            CallProcessImages(64);
+        }
+        private void SetResolution32(object sender, EventArgs e)
+        {
+            CallProcessImages(32);
+        }
+        private void SetResolution16(object sender, EventArgs e)
+        {
+            CallProcessImages(16);
+        }
+        #endregion
 
         private void SetImageResolution(int desiredWidth)
         {
 
 
             int selectedCount = checkedListBox1.CheckedIndices.Count;
-            
+
             DialogResult result = MessageBox.Show($"You are about to change the resolution of {selectedCount} images. Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.No)
@@ -197,6 +230,7 @@ namespace Image_Resizer
                     };
 
                     img.Mutate(x => x.Resize(resizeOptions));
+                    img.Save(newFilePath);
 
                     switch (fileExtension)
                     {
@@ -261,9 +295,9 @@ namespace Image_Resizer
                             break;
                     }
 
-                    
+                   
 
-                    img.Save(newFilePath);
+
 
                     FileInfo fileInfo = new FileInfo(newFilePath);
                     double fileSizeInMB = Math.Round((double)fileInfo.Length / (1024 * 1024), 2);
